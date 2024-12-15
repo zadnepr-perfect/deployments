@@ -6,7 +6,7 @@
       env_file:
         - .env
       volumes:
-        - ../api_service:/app  # Привязываем локальный код к контейнеру
+        - ../services/api_service:/app  # Привязываем локальный код к контейнеру
         - /app/tmp  # Исключаем сборочные артефакты 
       environment:
         - APP_PORT=8080  # Указываем порт приложения
@@ -28,7 +28,7 @@
       ports:
         - "${DB_PORT}:5432"
       volumes:
-        - ../../.local_data/postgres:/var/lib/postgresql/data
+        - ../.local_data/postgres:/var/lib/postgresql/data
       networks:
         - app-network
 
